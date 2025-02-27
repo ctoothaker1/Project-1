@@ -11,9 +11,20 @@ header {
     text-align: center;
 }
 main {
+
     padding: 2rem;
 }
-.main section{
+#destinations-container{
+    display: flex;
+    flex-direction: column;
+}
+.destination-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    padding: 10px;
 
 }
 footer {

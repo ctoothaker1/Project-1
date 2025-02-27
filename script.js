@@ -1,3 +1,36 @@
+function getDestinations() {
+    return JSON.parse(destinationsData);
+}
+function populateCards(){
+    const destinations = getDestinations();
+    const cardContainer = document.getElementById("card-container");
+    for(let i=0; i<destinations.length; i++){
+        const card = createCard(destinations[i]);
+        cardContainer.appendChild(card);
+    }
+}
+function createCard(destination){
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">${destination.name}</h5>
+            <p class="card-text">${destination.description}</p>
+            <button class="btn btn-primary" onclick="showDetails(${destination.id})">View Details</button>
+        </div>
+    `;
+}
+
+function Destination(id, name, image, description, details){ // destination object contsructor
+    this.id = id;
+    this.name = name;
+    this.image = image;
+    this.description = description;
+    this.details = details;
+
+}
+
 const destinationsData = `[
     {
         "id": 1,
