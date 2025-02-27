@@ -31,20 +31,20 @@
             "name": "London",
             "image": "images/London/london-medium.jpg",
             "image_large": "images/London/london-large.jpg",
-            "description": "Paris is the capital city of France. It is a major European city and has become one of the world's most popular tourist destinations.",
+            "description": "London is the capital and largest city of the United Kingdom. It is a vibrant and diverse metropolis known for its iconic landmarks, rich history, and global influence in culture, finance, fashion, and the arts.",
             "details": {
-                "long_description": "Paris is a major European city and a global center for art, fashion, gastronomy and culture.",
-                "population": "2.141 million",
-                "area": "105 square kilometers",
-                "language": "French",
-                "currency": "Euro",
+                "long_description": "London, the capital of the United Kingdom, is a dynamic and multicultural city with a rich history dating back to Roman times. Situated on the River Thames, it is a global center for politics, culture, and commerce. Famous landmarks include Buckingham Palace, the Tower of London, and the Houses of Parliament. The city is home to world-class museums like the British Museum and Tate Modern, attracting millions of visitors each year. Known for its diversity, London also has a thriving arts scene, from West End theater to music festivals. As a financial hub, it houses major institutions like the London Stock Exchange. London blends historical charm with modern innovation, offering both green spaces like Hyde Park and a cutting-edge skyline with skyscrapers like The Shard. The city’s extensive transport system makes it easy to navigate, connecting visitors to its many cultural and historical attractions.",
+                "population": "Approx. 9 million",
+                "area": "1,572 square kilometers (607 square miles)",
+                "language": "English",
+                "currency": "British Pound",
                 "itinirary": [
-                    "Day 1: Arrive in Paris, visit the Eiffel Tower",
-                    "Louvre Museum",
-                    "Notre-Dame Cathedral",
-                    "Palace of Versailles",
-                    "Montmartre",
-                    "Seine River Cruise"
+                    "Day 1: Arrive in London, check into The Ritz London",
+                    "Big Ben",
+                    "Buckingham Palace",
+                    "Tower of London",
+                    "London Eye",
+                    "Westminster Abbey"
                 ],
                 "location": {
                     "latitude": 51.5074,
