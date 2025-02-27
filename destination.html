@@ -3,25 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel the World - Destination</title>
+    <title>Travel the World - Homepage</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>destination name</h1>
+        <div class="header">
+            <h1>Where do you want to go?</h1>
+        </div>
     </header>
     <main>
-        <p>main area</p>
 
-        <section>
-            
-        </section>
+        <div id="search-area">
+            <form action="search-results.html" method="POST">
+                <label for="destination">Search Destinations:</label> 
+                <input type="text" id="destination" name="destination" placeholder="Destination">
+                <label for="category">Category:</label>
+                <select name="category" id="category">
+                    <option value="all">All</option>
+                    <option value="beach">Beach</option>
+                    <option value="mountain">Mountain</option>
+                    <option value="city">City</option>
+                    <option value="desert">Desert</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div id="detailed-destination-container">
+
+            <!-- detailed destination section added here -->
+
+        </div>
+
+        
 
 
     </main>
     <footer>
         <p>&copy; 2025 Charlie Toothaker</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 
