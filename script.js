@@ -28,12 +28,12 @@ async function loadDestinations() {
 
 async function loadDestinationDetails() {
     try {
-        const response = await fetch("destinationsData.json");
-        const destinationsData = await response.json();
+        let response = await fetch("destinationsData.json");
+        let destinationsData = await response.json();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get("id");
-        const destination = destinationsData.destinations.find(destination => destination.id == id);
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let destination = destinationsData.destinations.find(destination => destination.id == id);
         let output = `
         <section class="destination-details">
         <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
@@ -44,10 +44,23 @@ async function loadDestinationDetails() {
         `;
         document.getElementById("detailed-destination-container").innerHTML = output;
 
+        // map specific code
+
+        var latitude = destinationsData.destinations[0].details.location.latitude;
+        console.log(latitude);
+        var longitude = destinationsData.destinations[0].details.location.longitude;
+        let map = L.map('map-container').setView([latitude, longitude], 15);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+
 } catch (error) {
     console.error("Error manipulating JSON to HTML: "+error);
 }
 }
+
 
 if (document.location.href.includes("index.html")) {
     window.onload = loadDestinations();
@@ -56,5 +69,6 @@ if (document.location.href.includes("index.html")) {
 // open the destination details page based on page title
 if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
+
     }
 
