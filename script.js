@@ -45,11 +45,11 @@ async function loadDestinationDetails() {
         document.getElementById("detailed-destination-container").innerHTML = output;
 
         // map specific code
-
-        var latitude = destinationsData.destinations[0].details.location.latitude;
-        console.log(latitude);
-        var longitude = destinationsData.destinations[0].details.location.longitude;
+        // get lat and long based on destination id -1 since the id starts from 1
+        let latitude = destinationsData.destinations[destination.id-1].details.location.latitude;
+        let longitude = destinationsData.destinations[destination.id-1].details.location.longitude;
         let map = L.map('map-container').setView([latitude, longitude], 15);
+
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -60,6 +60,7 @@ async function loadDestinationDetails() {
     console.error("Error manipulating JSON to HTML: "+error);
 }
 }
+
 
 
 if (document.location.href.includes("index.html")) {

@@ -40,7 +40,7 @@ main {
 .destination-card img {
     width: 100%;
     height: auto;
-    /* object-fit: scale-down; */
+    object-fit: scale-down;
 }
 #map-container { height: 180px; }
 
@@ -54,4 +54,16 @@ footer {
     padding: 1rem;
     width: 100%;
     bottom: 0;
+}
+
+@media (min-width: 768px) {
+    #destinations-container {
+        flex-direction: row;
+        flex-wrap: no-wrap;
+        justify-content: space-evenly;
+    }
+    .destination-card {
+        width: 50%;
+        margin-inline: 1rem;
+    }
 }
