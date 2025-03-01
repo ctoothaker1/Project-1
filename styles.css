@@ -10,8 +10,30 @@ header {
     padding: 1rem;
     text-align: center;
 }
-main {
+nav {
+    display: flex;
+    justify-content: center;
 
+}
+nav ul{
+    list-style: none;  
+    padding: 0;        
+    margin: 0;         
+    display: flex;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+nav li {
+    padding: 10px;
+    margin: 0 15px
+}
+nav a:hover{
+    color: rgb(141, 141, 141);
+}
+main {
     padding: 2rem;
 }
 #destinations-container{
