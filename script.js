@@ -34,20 +34,26 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         let urlParams = new URLSearchParams(window.location.search);
         let id = urlParams.get("id");
         let destination = destinationsData.destinations.find(destination => destination.id == id);
+        let latitude = destinationsData.destinations[destination.id-1].details.location.latitude;
+        let longitude = destinationsData.destinations[destination.id-1].details.location.longitude;
         let output = `
         <section class="destination-details">
-        <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
+        <img src="${destination.image_large}" alt="${destination.name}" class="card-img-top">
         <div class="card-body">
             <h1 class="card-title">${destination.name}</h1>
-            <p class="card-text">${destination.description}</p>
+            <p class="card-population">Population: ${destination.details.population}</p3>
+            <p class="card-language">Language Spoken: ${destination.details.language}</p>
+            <p class="card-currency">Currency: ${destination.details.currency}</p>
+        
+            <p class="card-description">${destination.description}</p>
+            <p class="card-itinerary">${destination.details.itinerary}</p>
         </section>
         `;
         document.getElementById("detailed-destination-container").innerHTML = output;
 
         // map specific code
         // get lat and long based on destination id -1 since the id starts from 1
-        let latitude = destinationsData.destinations[destination.id-1].details.location.latitude;
-        let longitude = destinationsData.destinations[destination.id-1].details.location.longitude;
+        
         let map = L.map('map-container').setView([latitude, longitude], 15);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

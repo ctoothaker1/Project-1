@@ -12,7 +12,7 @@
                 "area": "105 square kilometers",
                 "language": "French",
                 "currency": "Euro",
-                "itinirary": [
+                "itinerary": [
                     "Day 1: Arrive in Paris, visit the Eiffel Tower",
                     "Louvre Museum",
                     "Notre-Dame Cathedral",
@@ -38,7 +38,7 @@
                 "area": "1,572 square kilometers (607 square miles)",
                 "language": "English",
                 "currency": "British Pound",
-                "itinirary": [
+                "itinerary": [
                     "Day 1: Arrive in London, check into The Ritz London",
                     "Big Ben",
                     "Buckingham Palace",
