@@ -52,15 +52,49 @@ main {
     margin-bottom: 1rem;
     overflow: hidden;
     padding: 10px;
-
 }
 .destination-card img {
     width: 100%;
     height: auto;
     object-fit: scale-down;
 }
-#map-container { height: 180px; }
+#map-container { 
+    height: 180px; 
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.1); /* -l/+r shadow | height | radius */
+    /* overflow: hidden; */
+    padding: 10px;
+    gap: 10px;
+    align-items: center; /* vertically center*/
 
+}
+.search-container label {
+    font-size: large;
+    margin-left: 10px
+
+}
+.search-container input {
+    flex-grow: 1;
+    padding: 5px 12px;
+    font-size: large;
+    border: 2px solid #4d4c4c;
+    border-radius: 2px;
+}
+.search-container button {
+    padding: 8px 15px;
+    font-size: 16px; 
+    cursor: pointer; /*show hand*/
+    background-color: #333; 
+    color: white;
+    border: none; 
+    border-radius: 5px;
+    margin-right: 10px
+}
 footer {
     background-color: #333;
     color: #fff;
@@ -69,7 +103,6 @@ footer {
     width: 100%;
     bottom: 0;
 }
-
 @media (min-width: 768px) {
     #destinations-container {
         flex-direction: row;

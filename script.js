@@ -1,5 +1,5 @@
 
-async function loadDestinations() {
+async function loadDestinations() { // used exclusively in index.html
     try {
         const response = await fetch("destinationsData.json");
         const destinationsData = await response.json();
@@ -26,7 +26,7 @@ async function loadDestinations() {
 
     }
 
-async function loadDestinationDetails() {
+async function loadDestinationDetails() { // used exclusively in destination.html
     try {
         let response = await fetch("destinationsData.json");
         let destinationsData = await response.json();
@@ -56,9 +56,9 @@ async function loadDestinationDetails() {
         }).addTo(map);
 
 
-} catch (error) {
-    console.error("Error manipulating JSON to HTML: "+error);
-}
+    } catch (error) {
+        console.error("Error manipulating JSON to HTML: "+error);
+    }
 }
 
 
@@ -70,6 +70,9 @@ if (document.location.href.includes("index.html")) {
 // open the destination details page based on page title
 if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
+    }
 
+if (document.location.href.includes("search.html")){
+    // run search function
     }
 
