@@ -68,11 +68,13 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
 }
 async function searchDestinations() {
     try {
-        let query = document.getElementById(search-box).textContent;
-        console.log(query);
+        
         let response = await fetch("destinationsData.json");
         let destinationsData = await response.json();
         let results = [];
+        let query = document.getElementById("search-box").textContent;
+        console.log(document.getElementById("search-box").text);
+        console.log(query.textContent);
 
         // find destinations that match search query
         destinationsData.destinations.forEach( destination => {
@@ -81,6 +83,9 @@ async function searchDestinations() {
             }
         })
 
+
+
+        let output = "";
         //asynchronously display results, when clicked view on destinaiton.html page
         results.forEach(destination => {
             output += `
@@ -113,7 +118,7 @@ if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
     }
 
-if (document.location.href.includes("search.html")){
-    // run search function -- NO only if user clicks search
-    }
+// if (document.location.href.includes("search.html")){
+//     // run search function -- NO only if user clicks search
+//     }
 
