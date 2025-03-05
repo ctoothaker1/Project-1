@@ -66,7 +66,42 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         console.error("Error manipulating JSON to HTML: "+error);
     }
 }
+async function searchDestinations() {
+    try {
+        let query = document.getElementById(search-box).textContent;
+        console.log(query);
+        let response = await fetch("destinationsData.json");
+        let destinationsData = await response.json();
+        let results = [];
 
+        // find destinations that match search query
+        destinationsData.destinations.forEach( destination => {
+            if (destination.name == query){ // use lowercase of query and destination
+                results.push(destination);
+            }
+        })
+
+        //asynchronously display results, when clicked view on destinaiton.html page
+        results.forEach(destination => {
+            output += `
+            <section class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
+            <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
+            <div class="card-body">
+                <h2 class="card-title">${destination.name}</h2>
+                <p class="card-text">${destination.description}</p>
+            </div>
+            </section>
+            `;
+        });
+        // add data to the results container
+        document.getElementById("results-container").innerHTML = output;
+
+
+    } catch (error) {
+        console.error("error in searchDestinations: "+error);
+    }
+    
+}
 
 
 if (document.location.href.includes("index.html")) {
@@ -79,6 +114,6 @@ if (document.location.href.includes("destination.html")) {
     }
 
 if (document.location.href.includes("search.html")){
-    // run search function
+    // run search function -- NO only if user clicks search
     }
 

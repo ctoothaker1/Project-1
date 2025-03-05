@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel the World - Search Results</title>
+    <title>Travel the World - Search</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,11 +22,15 @@
         <section>
             <div class="search-container">
                 <label for="search-box">Search:</label>
-                <input type="search" id="search-box" name="search" placeholder="Destination name">
-                <button type="submit">Search</button>
+                <input type="text" id="search-box" name="search-box" placeholder="Destination name">
+                <button type="submit" onclick="searchDestinations()">Search</button>
             </div>
         </section>
-        
+        <section>
+            <div class="results-container">
+                <!-- results automatically display here -->
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2025 Charlie Toothaker</p>
