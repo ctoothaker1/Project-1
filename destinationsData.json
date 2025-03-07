@@ -1,13 +1,13 @@
 { 
     "destinations": [
-        {
+        { 
             "id": 1,
             "name": "Paris",
             "image": "images/Paris/paris-medium.jpg",
             "image_large": "images/Paris/paris-large.jpg",
-            "description": "Paris is the capital city of France. It is a major European city and has become one of the world's most popular tourist destinations.",
+            "description": "Paris is a major European city and a global center for art, fashion, gastronomy and culture.",
             "details": {
-                "long_description": "Paris is a major European city and a global center for art, fashion, gastronomy and culture.",
+                "long_description": "Paris is the capital city of France. It is a major European city and has become one of the world's most popular tourist destinations.",
                 "population": "2.141 million",
                 "area": "105 square kilometers",
                 "language": "French",

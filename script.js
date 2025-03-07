@@ -74,23 +74,19 @@ async function searchDestinations() {
         let results = [];
         let query = document.getElementById("search-box").value.toLowerCase();
 
-        //Search logic - if exact match, push. if close match, still push. if no match, 
+        //Search logic - if exact match, push. if close match, still push. if no match, results.length = 0
         destinationsData.destinations.forEach( destination => {
             let destinationName = destination.name.toLowerCase();
             // console.log("query: "+query);
             // console.log("query length: "+query.length);
             // console.log("destination name: "+destination.name);
             // console.log("destination experiment: "+ destinationName.substring(0, query.length));
-            if (destinationName == query || query == destinationName.substring(0, query.length)){
+            if (query!="" && (destinationName == query || query == destinationName.substring(0, query.length))){
                 results.push(destination);
             }
         })
 
-        console.log("Length of results array: "+results.length);
-
         let output = "";
-
-        
         if (results.length>0){ //results are found, display them.
         //display results, when clicked view on destinaiton.html page
             results.forEach(destination => {
@@ -99,7 +95,6 @@ async function searchDestinations() {
                 <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
                 <div class="card-body">
                     <h2 class="card-title">${destination.name}</h2>
-                    <p class="card-text">${destination.description}</p>
                 </div>
                 </section>
                 `;
