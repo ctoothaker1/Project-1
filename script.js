@@ -72,13 +72,16 @@ async function searchDestinations() {
         let response = await fetch("destinationsData.json");
         let destinationsData = await response.json();
         let results = [];
-        let query = document.getElementById("search-box").value;
-        console.log(document.getElementById("search-box").value);
-        console.log(query.textContent);
+        let query = document.getElementById("search-box").value.toLowerCase();
 
-        // find destinations that match search query
+        //Search logic - if exact match, push. if close match, still push. if no match, 
         destinationsData.destinations.forEach( destination => {
-            if (destination.name == query){ // use lowercase of query and destination -- .toLowerCase()
+            let destinationName = destination.name.toLowerCase();
+            // console.log("query: "+query);
+            // console.log("query length: "+query.length);
+            // console.log("destination name: "+destination.name);
+            // console.log("destination experiment: "+ destinationName.substring(0, query.length));
+            if (destinationName == query || query == destinationName.substring(0, query.length)){
                 results.push(destination);
             }
         })
@@ -86,22 +89,35 @@ async function searchDestinations() {
         console.log("Length of results array: "+results.length);
 
         let output = "";
-        //asynchronously display results, when clicked view on destinaiton.html page
-        results.forEach(destination => {
-            output += `
-            <section class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
-            <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
-            <div class="card-body">
-                <h2 class="card-title">${destination.name}</h2>
-                <p class="card-text">${destination.description}</p>
-            </div>
+
+        
+        if (results.length>0){ //results are found, display them.
+        //display results, when clicked view on destinaiton.html page
+            results.forEach(destination => {
+                output += `
+                <section class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
+                <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title">${destination.name}</h2>
+                    <p class="card-text">${destination.description}</p>
+                </div>
+                </section>
+                `;
+
+            });
+        }else {
+            // no results
+            output+=`
+            <section class="result-item">
+                <div class = "card-body">
+                    <p class = "card-text">No results</p>
+                </div>
             </section>
             `;
-        });
-        // add data to the results container
-        console.log("output: "+output);
-        document.getElementById("results-container").innerHTML += output;
-
+            
+        }
+        // add each result to the results container 
+        document.getElementById("results-container").innerHTML = output; // ID not CLASS
 
     } catch (error) {
         console.error("error in searchDestinations: "+error);

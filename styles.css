@@ -94,6 +94,23 @@ main {
     border-radius: 5px;
     margin-right: 10px
 }
+.result-item { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.1); /* -l/+r shadow | height | radius */
+    /* overflow: hidden; */
+    padding: 10px;
+    gap: 10px;
+    align-items: center; /* vertically center*/
+}
+.result-item img {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+}
 #detailed-destination-container{
     display: flex;
     flex-direction: column;
