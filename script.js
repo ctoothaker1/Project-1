@@ -72,18 +72,18 @@ async function searchDestinations() {
         let response = await fetch("destinationsData.json");
         let destinationsData = await response.json();
         let results = [];
-        let query = document.getElementById("search-box").textContent;
-        console.log(document.getElementById("search-box").text);
+        let query = document.getElementById("search-box").value;
+        console.log(document.getElementById("search-box").value);
         console.log(query.textContent);
 
         // find destinations that match search query
         destinationsData.destinations.forEach( destination => {
-            if (destination.name == query){ // use lowercase of query and destination
+            if (destination.name == query){ // use lowercase of query and destination -- .toLowerCase()
                 results.push(destination);
             }
         })
 
-
+        console.log("Length of results array: "+results.length);
 
         let output = "";
         //asynchronously display results, when clicked view on destinaiton.html page
@@ -99,7 +99,8 @@ async function searchDestinations() {
             `;
         });
         // add data to the results container
-        document.getElementById("results-container").innerHTML = output;
+        console.log("output: "+output);
+        document.getElementById("results-container").innerHTML += output;
 
 
     } catch (error) {
