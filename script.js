@@ -49,6 +49,8 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
             <p class="card-itinerary">${destination.details.itinerary}</p>
         </section>
         `;
+        document.title = "Travel the World - "+destination.name; // dynamic title change
+        
         document.getElementById("detailed-destination-container").innerHTML = output;
 
         // map specific code
@@ -66,7 +68,8 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         console.error("Error manipulating JSON to HTML: "+error);
     }
 }
-async function searchDestinations() {
+
+async function searchDestinations() { // runs when search button is clicked
     try {
         
         let response = await fetch("destinationsData.json");
@@ -120,6 +123,8 @@ async function searchDestinations() {
     
 }
 
+function validateForm(){}
+function submitForm(){}
 
 if (document.location.href.includes("index.html")) {
     window.onload = loadDestinations();
@@ -129,8 +134,4 @@ if (document.location.href.includes("index.html")) {
 if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
     }
-
-// if (document.location.href.includes("search.html")){
-//     // run search function -- NO only if user clicks search
-//     }
 
