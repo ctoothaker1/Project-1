@@ -37,8 +37,7 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         let latitude = destinationsData.destinations[destination.id-1].details.location.latitude;
         let longitude = destinationsData.destinations[destination.id-1].details.location.longitude;
         let output = `
-        <section class="destination-details">
-        <img src="${destination.image_large}" alt="${destination.name}" class="card-img-top">
+        <img src="${destination.image_large}" alt="${destination.name}">
         <div class="card-body">
             <h1 class="card-title">${destination.name}</h1>
             <p class="card-population">Population: ${destination.details.population}</p3>
@@ -47,7 +46,6 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         
             <p class="card-description">${destination.description}</p>
             <p class="card-itinerary">${destination.details.itinerary}</p>
-        </section>
         `;
         document.title = "Travel the World - "+destination.name; // dynamic title change
         
@@ -63,9 +61,10 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+        populateFormDropdown(id);
 
     } catch (error) {
-        console.error("Error manipulating JSON to HTML: "+error);
+        console.error("Error in loadDestinationDetails() "+error);
     }
 }
 
@@ -95,7 +94,7 @@ async function searchDestinations() { // runs when search button is clicked
             results.forEach(destination => {
                 output += `
                 <section class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
-                <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
+                <img src="${destination.image}" alt="${destination.name}">
                 <div class="card-body">
                     <h2 class="card-title">${destination.name}</h2>
                 </div>
@@ -123,6 +122,33 @@ async function searchDestinations() { // runs when search button is clicked
     
 }
 
+async function getDestinations() { //returns array of destinations
+    let destinationsForDropdown = [];
+    try {
+        let response = await fetch("destinationsData.json");
+        let destinationsData = await response.json();
+        
+        destinationsData.destinations.forEach( destination => {
+                destinationsForDropdown.push(destination);
+        })
+    } catch (error) {
+        console.error("error in getDestinations: "+ error);
+    }
+    return destinationsForDropdown;
+
+}
+async function populateFormDropdown(id){ // populate booking form dropdown given id of currently viewed destination
+            let select = document.getElementById("destination-select");
+            let destinations = getDestinations();
+            let optionsOutput = ``;
+            (await destinations).forEach(destination => {
+                if (destination.id == id) { // auto select the current destination
+                    optionsOutput += `<option value="${destination.id}" selected>${destination.name}</option>`;
+                } else
+                optionsOutput += `<option value="${destination.id}">${destination.name}</option>`;
+            });
+            select.innerHTML = optionsOutput;
+}
 function validateForm(){}
 function submitForm(){}
 

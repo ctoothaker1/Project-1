@@ -135,13 +135,15 @@ main {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.261);
     margin-bottom: 1rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 10px;
 }
 #detailed-destination-container img{
-    width: 100%;
+    width: 80%;
     height: auto;
     object-fit: scale-down;
+    border-radius: 10px;
+    align-self: center;
 }
 #booking-form{
     background-color: #fff;
