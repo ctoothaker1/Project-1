@@ -93,12 +93,12 @@ async function searchDestinations() { // runs when search button is clicked
         //display results, when clicked view on destinaiton.html page
             results.forEach(destination => {
                 output += `
-                <section class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
+                <div class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
                 <img src="${destination.image}" alt="${destination.name}">
                 <div class="card-body">
                     <h2 class="card-title">${destination.name}</h2>
                 </div>
-                </section>
+                </div>
                 `;
 
             });

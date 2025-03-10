@@ -21,9 +21,7 @@
             </nav>
         </div>
     </header>
-    <main>
-
-
+    <main class = "destination-main">
         <section class = "destination-details-section">
             <div id="detailed-destination-container">
 
@@ -31,31 +29,35 @@
 
             </div>
         </section>
+        <div class = "right-container">
+            <section class = "map-section">
+                <div id = "map-container">
+            
+                    <!-- map section goes here -->
 
-
-        <section class = "map-section">
-            <div id = "map-container">
-        
-                <!-- map section goes here -->
-
-            </div>
-        </section>
-
-        <section class = "registration-section">
-            <h1>Book your trip!</h1>
-            <form id = "booking-form" action="">
-                <label for="destination-select">Select Destination:</label>
-                <select id="destination-select" required>
-                    <!-- options populated using js -->
-                </select>
-                <br>
-                <label for="name-input">Name:</label>
-                <input type="text" id="name-input" required placeholder="Your Name">
-                <br>
-
-            </form>
-        </section>        
-
+                </div>
+            </section>
+            <section class = "registration-section">
+                <form id = "booking-form" action="">
+                    <h1>Book your trip!</h1>
+                    <label for="destination-select">Select Destination:</label>
+                    <select id="destination-select" required>
+                        <!-- options populated using js -->
+                    </select>
+                    <br>
+                    <label for="name-input">Name:</label>
+                    <input type="text" id="name-input" required placeholder="Name">
+                    <br>
+                    <label for="email-input">Email Address:</label>
+                    <input type="email" id="email-input" required placeholder="Email">
+                    <br>
+                    <label for="travelers-input">Number of Travelers:</label>
+                    <input type="number" id="travelers-input" required placeholder="Number of Travelers (1-10)" min="1" max="10">
+                    <br>
+                    <button type="submit" onclick="submitForm()">Confirm Booking</button>
+                </form>
+            </section>        
+        </div>
 
     </main>
     <footer>
