@@ -140,6 +140,9 @@ main {
     object-fit: scale-down;
     border-radius: 10px;
 }
+.result-item h2,p {
+    margin: 0;
+}
 #detailed-destination-container{
     display: flex;
     flex-direction: column;
@@ -266,13 +269,19 @@ footer {
         align-items: center;
     }
     .destination-card {
-        width: 80%;
+        width: 100%;
         margin-inline: 1rem;
     }
 }
-/* @media screen and (min-width: 480px){
-    .search-container{
-        object-fit: scale-down;
+/* @media screen and (min-width: 769px){
+    #destinations-container {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .destination-card {
+        max-width: 100%;
+        margin-inline: 1rem;
     }
 } */
 @media screen and (max-width: 480px){

@@ -40,12 +40,12 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         <img src="${destination.image_large}" alt="${destination.name}">
         <div class="card-body">
             <h1 class="card-title">${destination.name}</h1>
+            <p class = "card-country">Country: ${destination.country}</p>
             <p class="card-population">Population: ${destination.details.population}</p3>
             <p class="card-language">Language Spoken: ${destination.details.language}</p>
             <p class="card-currency">Currency: ${destination.details.currency}</p>
-        
             <p class="card-description">${destination.description}</p>
-            <p class="card-itinerary">${destination.details.itinerary}</p>
+            <p class="card-popular-destinations">Popular Destinations: ${destination.details.popularDestinations.join(" ")}</p>
         `;
         document.title = "Travel the World - "+destination.name; // dynamic title change
         
@@ -78,12 +78,14 @@ async function searchDestinations() { // runs when search button is clicked
 
         //Search logic - if exact match, push. if close match, still push. if no match, results.length = 0
         destinationsData.destinations.forEach( destination => {
-            let destinationName = destination.name.toLowerCase();
+            let destinationCity = destination.name.toLowerCase();
+            let destinationCountry = destination.country.toLowerCase();
             // console.log("query: "+query);
             // console.log("query length: "+query.length);
             // console.log("destination name: "+destination.name);
             // console.log("destination experiment: "+ destinationName.substring(0, query.length));
-            if (query!="" && (destinationName == query || query == destinationName.substring(0, query.length))){
+            if (query!="" && (((destinationCity == query || query == destinationCity.substring(0, query.length))) //city search
+                || (destinationCountry == query || query == destinationCountry.substring(0, query.length)))) { //country search
                 results.push(destination);
             }
         })
@@ -97,6 +99,7 @@ async function searchDestinations() { // runs when search button is clicked
                 <img src="${destination.image}" alt="${destination.name}">
                 <div class="card-body">
                     <h2 class="card-title">${destination.name}</h2>
+                    <p class="card-text">${destination.country}</p>
                 </div>
                 </div>
                 `;
@@ -149,8 +152,16 @@ async function populateFormDropdown(id){ // populate booking form dropdown given
             });
             select.innerHTML = optionsOutput;
 }
-function validateForm(){}
-function submitForm(){}
+// function validateForm(){ // ensures form is filled out correctly
+
+// }
+function submitForm(){ // process form, print to console as proof of concept
+    let destinaiton = document.getElementById("destination-select").value;
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let date = document.getElementById("date").value;
+    
+}
 
 if (document.location.href.includes("index.html")) {
     window.onload = loadDestinations();

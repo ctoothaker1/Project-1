@@ -3,6 +3,7 @@
         { 
             "id": 1,
             "name": "Paris",
+            "country": "France",
             "image": "images/Paris/paris-medium.jpg",
             "image_large": "images/Paris/paris-large.jpg",
             "description": "Paris is a major European city and a global center for art, fashion, gastronomy and culture.",
@@ -12,8 +13,8 @@
                 "area": "105 square kilometers",
                 "language": "French",
                 "currency": "Euro",
-                "itinerary": [
-                    "Day 1: Arrive in Paris, visit the Eiffel Tower",
+                "popularDestinations": [
+                    "Eiffel Tower",
                     "Louvre Museum",
                     "Notre-Dame Cathedral",
                     "Palace of Versailles",
@@ -29,6 +30,7 @@
         {
             "id": 2,
             "name": "London",
+            "country": "United Kingdom",
             "image": "images/London/london-medium.jpg",
             "image_large": "images/London/london-large.jpg",
             "description": "London is the capital and largest city of the United Kingdom. It is a vibrant and diverse metropolis known for its iconic landmarks, rich history, and global influence in culture, finance, fashion, and the arts.",
@@ -38,8 +40,8 @@
                 "area": "1,572 square kilometers (607 square miles)",
                 "language": "English",
                 "currency": "British Pound",
-                "itinerary": [
-                    "Day 1: Arrive in London, check into The Ritz London",
+                "popularDestinations": [
+                    "The British Museum",
                     "Big Ben",
                     "Buckingham Palace",
                     "Tower of London",
@@ -54,9 +56,84 @@
         },
         {
             "id":3,
-            "name": "Portugal"
-
-
+            "name": "Porto",
+            "country": "Portugal",
+            "image": "images/Porto/porto-medium.jpg",
+            "image_large": "images/Porto/porto-large.jpg",
+            "description": "Porto is a coastal city in northwest Portugal known for its stately bridges and port wine production.",
+            "details": {
+                "long_description": "",
+                "population": "",
+                "area": "",
+                "language": "",
+                "currency": "",
+                "popularDestinations": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "location": {
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            }
+        },
+        {
+            "id":4,
+            "name": "Rome",
+            "country": "Italy",
+            "image": "images/Rome/rome-medium.jpg",
+            "image_large": "images/Rome/rome-large.jpg",
+            "description": "Rome is the capital city of Italy and a major historical and cultural center in Europe.",
+            "details": {
+                "long_description": "",
+                "population": "",
+                "area": "",
+                "language": "",
+                "currency": "",
+                "popularDestinations": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "location": {
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            }
+        },
+        {
+            "id":5,
+            "name": "Madrid",
+            "country": "Spain",
+            "image": "images/Rome/rome-medium.jpg",
+            "image_large": "images/Rome/rome-large.jpg",
+            "description": "",
+            "details": {
+                "long_description": "",
+                "population": "",
+                "area": "",
+                "language": "",
+                "currency": "",
+                "popularDestinations": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "location": {
+                    "latitude": 0,
+                    "longitude": 0
+                }
+            }
         }
     ]
 }
