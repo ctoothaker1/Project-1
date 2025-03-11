@@ -1,14 +1,22 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden; /* hide horizontal scrollbar */
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* horizontally center all elements */
 }
 header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
     text-align: center;
+    width: 100%;
 }
 nav {
     display: flex;
@@ -38,26 +46,30 @@ nav li:hover{
 }
 
 main {
+    flex: 1; /* make elements take up all available space, footer always at bottom */
     padding: 2rem;
 }
 #destinations-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
 }
-
 .destination-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
-    overflow: hidden;
+    margin-inline: 10px;
+    width: 30%;
     padding: 10px;
     cursor: pointer;
+    justify-content: center;
 }
 .destination-card img {
     width: 100%;
     height: auto;
     object-fit: scale-down;
+    border-radius: 5px;
 }
 #map-container { 
     height: 300px; 
@@ -70,7 +82,6 @@ main {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.1); /* -l/+r shadow | height | radius */
-    /* overflow: hidden; */
     padding: 10px;
     margin-bottom: 10px;
     gap: 10px;
@@ -79,7 +90,6 @@ main {
 .search-container label {
     font-size: large;
     margin-left: 10px
-
 }
 .search-container input {
     flex-grow: 1;
@@ -137,7 +147,6 @@ main {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.261);
     margin-bottom: 1rem;
-    /* overflow: hidden; */
     padding: 10px;
 }
 #detailed-destination-container img{
@@ -186,7 +195,7 @@ footer {
     text-align: center;
     padding: 1rem;
     width: 100%;
-    bottom: 0;
+    /* bottom: 0; */
 }
 /* Media queries -- 480, 768, 1024 */
 @media screen and (min-width: 1024px) {
@@ -195,33 +204,47 @@ footer {
         flex-direction: row;
         justify-content: space-evenly;
     }
+    .destination-details-section{
+        /* display: flex; Makes section box stretch to bottom of screen */
+    }
     #detailed-destination-container{
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.261);
         margin-bottom: 1rem;
         max-width: 50vw;
-        flex-grow: 1;
         padding: 10px;
     }
-    #detailed-destination-container img{
+
+    /* #detailed-destination-container img{
         width: 100%;
         height: auto;
         object-fit: scale-down;
         border-radius: 10px;
         align-self: center;
-    }
+    } */
     .right-container {
-        margin-left: 15px;
-        max-width: 50vw;
-        min-width: fit-content;
         display: flex;
         flex-grow: 1;
         flex-direction: column;
-        /* gap: 0px; */
-        /* padding: 5px; */
+        margin-left: 15px;
+        width: 50vw;
+    }
+    .map-section{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        /* max-height: 50vh;
+        min-height: fit-content; */ 
+    }
+    .registration-section{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-height: 50vh;
     }
     #booking-form{
         background-color: #fff;
@@ -229,22 +252,21 @@ footer {
         box-shadow: 0px 12px 9px rgba(0, 0, 0, 0.1); /* -l/+r shadow | height | radius */
         display: flex;
         flex-direction: column;
-        /* gap: 0px; */
         padding: 10px;
     }
     #map-container { 
         border-radius: 10px;
         margin-bottom: 10px;
+        flex-grow: 1;
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     #destinations-container {
-        flex-direction: row;
-        flex-wrap: no-wrap;
-        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
     }
     .destination-card {
-        width: 50%;
+        width: 80%;
         margin-inline: 1rem;
     }
 }
