@@ -90,7 +90,6 @@ async function searchDestinations() { // runs when search button is clicked
                 results.push(destination);
             }
         })
-
         let output = "";
         if (results.length>0){ //results are found, display them.
         //display results, when clicked view on destinaiton.html page
@@ -104,7 +103,6 @@ async function searchDestinations() { // runs when search button is clicked
                 </div>
                 </div>
                 `;
-
             });
         }else { // no results
             output+=`
@@ -114,16 +112,18 @@ async function searchDestinations() { // runs when search button is clicked
                 </div>
             </section>
             `;
-            
         }
         // add each result to the results container 
         document.getElementById("results-container").innerHTML = output;
+
+        //Persist search query in session storage
+        const searchQuery = document.getElementById("search-box").value;
+        sessionStorage.setItem("searchQuery", searchQuery); //key,value
+
     } catch (error) {
         console.error("error in searchDestinations: "+error);
     }
-    
 }
-
 async function getDestinations() { //returns array of destinations
     let destinationsForDropdown = [];
     try {
@@ -137,7 +137,6 @@ async function getDestinations() { //returns array of destinations
         console.error("error in getDestinations: "+ error);
     }
     return destinationsForDropdown;
-
 }
 async function populateFormDropdown(id){ // populate booking form dropdown given id of currently viewed destination
             let select = document.getElementById("destination-select");
@@ -151,9 +150,6 @@ async function populateFormDropdown(id){ // populate booking form dropdown given
             });
             select.innerHTML = optionsOutput;
 }
-// function validateForm(){ // ensures form is filled out correctly
-
-// }
 function submitForm(event){ // process form, print to console as proof of concept
     event.preventDefault(); // ensures page is not reloaded - stays on the same page
     
@@ -167,7 +163,6 @@ function submitForm(event){ // process form, print to console as proof of concep
 
         // date verification
         let today = new Date(); //use default date object. 
-        // alert(today.toISOString());
         let inputDate = new Date(date);
         if (inputDate < today) {
             alert("Please enter a future date.");
@@ -195,4 +190,14 @@ if (document.location.href.includes("index.html")) {
 if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
     }
+
+if (document.location.href.includes("search.html")){
+    //populate search box with previous search and run search function
+    const previousSearchFromThisSession = sessionStorage.getItem('searchQuery');
+    if (previousSearchFromThisSession){
+        document.getElementById("search-box").value = previousSearchFromThisSession;
+        searchDestinations();
+    }
+
+}
 
