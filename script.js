@@ -53,7 +53,7 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
             <p class="card-currency">Currency: ${destination.details.currency}</p>
             <p class="card-popular-destinations">Popular Destinations: ${destination.details.popularDestinations.join(", ")}</p>
         `;
-        document.title = "Travel the World - "+destination.name; // dynamic title change
+        document.title = "Discover Europe - "+destination.name; // dynamic title change
         
         document.getElementById("detailed-destination-container").innerHTML = output;
 
