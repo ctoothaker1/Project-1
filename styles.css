@@ -48,12 +48,9 @@ nav li:hover{
 main {
     flex: 1; /* make elements take up all available space, footer always at bottom */
     padding: 2rem;
+    padding-bottom: 40px; /* ensure footer doesnt cover content */
 }
-#destinations-container{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
+
 .destination-card {
     background-color: #fff;
     border-radius: 10px;
@@ -140,7 +137,7 @@ main {
     object-fit: scale-down;
     border-radius: 10px;
 }
-.result-item h2,p {
+.result-item h2, .result-item p {
     margin: 0;
 }
 #detailed-destination-container{
@@ -168,6 +165,7 @@ main {
     padding: 10px;
 }
 #booking-form select, input,label {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
     margin-left: 10px;
     margin-right: 10px;

@@ -97,9 +97,9 @@ async function searchDestinations() { // runs when search button is clicked
                 output += `
                 <div class="result-item" onclick="window.open('destination.html?id=${destination.id}', '_self')">
                 <img src="${destination.image}" alt="${destination.name}">
-                <div class="card-body">
-                    <h2 class="card-title">${destination.name}</h2>
-                    <p class="card-text">${destination.country}</p>
+                <div class="result-body">
+                    <h2 class="result-title">${destination.name}</h2>
+                    <p class="result-text">${destination.country}</p>
                 </div>
                 </div>
                 `;
@@ -109,8 +109,8 @@ async function searchDestinations() { // runs when search button is clicked
             // no results
             output+=`
             <section class="result-item">
-                <div class = "card-body">
-                    <p class = "card-text">No results</p>
+                <div class = "result-body">
+                    <p class = "result-text">No results</p>
                 </div>
             </section>
             `;
@@ -160,7 +160,7 @@ function submitForm(){ // process form, print to console as proof of concept
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let date = document.getElementById("date").value;
-    
+
 }
 
 if (document.location.href.includes("index.html")) {
