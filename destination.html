@@ -38,7 +38,7 @@
                 </div>
             </section>
             <section class = "registration-section">
-                <form id = "booking-form" action="">
+                <form id = "booking-form" action="" onsubmit="submitForm(event)">
                     <h1>Book your trip!</h1>
                     <label for="destination-select">Select Destination:</label>
                     <select id="destination-select" required>
@@ -57,7 +57,7 @@
                     <label for="date-input">Travel Date:</label>
                     <input type="date" id="date-input" required>
                     <br>
-                    <button type="submit" onclick="submitForm()">Confirm Booking</button>
+                    <button type="submit">Confirm Booking</button>
                 </form>
             </section>        
         </div>

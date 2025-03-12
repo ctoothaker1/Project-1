@@ -8,7 +8,7 @@
             "image_large": "images/Paris/paris-large.jpg",
             "description": "Paris is a major European city and a global center for art, fashion, gastronomy and culture.",
             "details": {
-                "long_description": "Paris is the capital city of France. It is a major European city and has become one of the world's most popular tourist destinations.",
+                "long_description": "Paris is the capital and largest city of France. It is a major European city and has become one of the world's most popular tourist destinations.",
                 "population": "2.141 million",
                 "area": "105 square kilometers",
                 "language": "French",
@@ -33,7 +33,7 @@
             "country": "United Kingdom",
             "image": "images/London/london-medium.jpg",
             "image_large": "images/London/london-large.jpg",
-            "description": "London is the capital and largest city of the United Kingdom. It is a vibrant and diverse metropolis known for its iconic landmarks, rich history, and global influence in culture, finance, fashion, and the arts.",
+            "description": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times.",
             "details": {
                 "long_description": "London, the capital of the United Kingdom, is a dynamic and multicultural city with a rich history dating back to Roman times. Situated on the River Thames, it is a global center for politics, culture, and commerce. Famous landmarks include Buckingham Palace, the Tower of London, and the Houses of Parliament. The city is home to world-class museums like the British Museum and Tate Modern, attracting millions of visitors each year. Known for its diversity, London also has a thriving arts scene, from West End theater to music festivals. As a financial hub, it houses major institutions like the London Stock Exchange. London blends historical charm with modern innovation, offering both green spaces like Hyde Park and a cutting-edge skyline with skyscrapers like The Shard. The city’s extensive transport system makes it easy to navigate, connecting visitors to its many cultural and historical attractions.",
                 "population": "Approx. 9 million",
@@ -49,8 +49,8 @@
                     "Westminster Abbey"
                 ],
                 "location": {
-                    "latitude": 51.5074,
-                    "longitude": 0.1278
+                    "latitude": 51.50807,
+                    "longitude": -0.12776
                 }
             }
         },
@@ -62,7 +62,7 @@
             "image_large": "images/Porto/porto-large.jpg",
             "description": "Porto is a coastal city in northwest Portugal known for its stately bridges and port wine production.",
             "details": {
-                "long_description": "",
+                "long_description": "Porto is a coastal city in northwest Portugal known for its stately bridges and port wine production. In the medieval Ribeira (riverside) district, narrow cobbled streets wind past merchants’ houses and cafes. São Francisco Church is known for its lavish baroque interior with ornate gilded carvings. The palatial 19th-century Palácio de Bolsa, formerly a stock market, was built to impress potential European investors.",
                 "population": "",
                 "area": "",
                 "language": "",
@@ -76,8 +76,8 @@
                     ""
                 ],
                 "location": {
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 41.15132,
+                    "longitude": -8.61079
                 }
             }
         },
@@ -103,8 +103,8 @@
                     ""
                 ],
                 "location": {
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 41.9145,
+                    "longitude": 12.4791
                 }
             }
         },
@@ -130,8 +130,8 @@
                     ""
                 ],
                 "location": {
-                    "latitude": 0,
-                    "longitude": 0
+                    "latitude": 40.41725,
+                    "longitude": -3.70329
                 }
             }
         }

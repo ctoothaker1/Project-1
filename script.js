@@ -12,6 +12,7 @@ async function loadDestinations() { // used exclusively in index.html
             <img src="${destination.image}" alt="${destination.name}" class="card-img-top">
             <div class="card-body">
                 <h2 class="card-title">${destination.name}</h2>
+                <p class="card-country">${destination.country}</p>
                 <p class="card-text">${destination.description}</p>
             </div>
             </section>
@@ -33,6 +34,10 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
 
         let urlParams = new URLSearchParams(window.location.search);
         let id = urlParams.get("id");
+        if (id == null) { // redirect to index.html
+            window.open("index.html", "_self");
+            return;
+        }
         let destination = destinationsData.destinations.find(destination => destination.id == id);
         let latitude = destinationsData.destinations[destination.id-1].details.location.latitude;
         let longitude = destinationsData.destinations[destination.id-1].details.location.longitude;
@@ -41,10 +46,10 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         <div class="card-body">
             <h1 class="card-title">${destination.name}</h1>
             <p class = "card-country">Country: ${destination.country}</p>
+            <p class="card-description">${destination.details.long_description}</p>
             <p class="card-population">Population: ${destination.details.population}</p3>
             <p class="card-language">Language Spoken: ${destination.details.language}</p>
             <p class="card-currency">Currency: ${destination.details.currency}</p>
-            <p class="card-description">${destination.description}</p>
             <p class="card-popular-destinations">Popular Destinations: ${destination.details.popularDestinations.join(" ")}</p>
         `;
         document.title = "Travel the World - "+destination.name; // dynamic title change
@@ -54,7 +59,7 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
         // map specific code
         // get lat and long based on destination id -1 since the id starts from 1
         
-        let map = L.map('map-container').setView([latitude, longitude], 15);
+        let map = L.map('map-container').setView([latitude, longitude], 10);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -80,10 +85,6 @@ async function searchDestinations() { // runs when search button is clicked
         destinationsData.destinations.forEach( destination => {
             let destinationCity = destination.name.toLowerCase();
             let destinationCountry = destination.country.toLowerCase();
-            // console.log("query: "+query);
-            // console.log("query length: "+query.length);
-            // console.log("destination name: "+destination.name);
-            // console.log("destination experiment: "+ destinationName.substring(0, query.length));
             if (query!="" && (((destinationCity == query || query == destinationCity.substring(0, query.length))) //city search
                 || (destinationCountry == query || query == destinationCountry.substring(0, query.length)))) { //country search
                 results.push(destination);
@@ -105,8 +106,7 @@ async function searchDestinations() { // runs when search button is clicked
                 `;
 
             });
-        }else {
-            // no results
+        }else { // no results
             output+=`
             <section class="result-item">
                 <div class = "result-body">
@@ -117,8 +117,7 @@ async function searchDestinations() { // runs when search button is clicked
             
         }
         // add each result to the results container 
-        document.getElementById("results-container").innerHTML = output; // ID not CLASS
-
+        document.getElementById("results-container").innerHTML = output;
     } catch (error) {
         console.error("error in searchDestinations: "+error);
     }
@@ -155,12 +154,26 @@ async function populateFormDropdown(id){ // populate booking form dropdown given
 // function validateForm(){ // ensures form is filled out correctly
 
 // }
-function submitForm(){ // process form, print to console as proof of concept
-    let destinaiton = document.getElementById("destination-select").value;
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let date = document.getElementById("date").value;
-
+function submitForm(event){ // process form, print to console as proof of concept
+    event.preventDefault(); // ensures page is not reloaded - stays on the same page
+    
+    try {
+        let destinationSelect = document.getElementById("destination-select");
+        let destination = destinationSelect.options[destinationSelect.selectedIndex].text; // get text from dropdown, instead of value which is ID
+        let name = document.getElementById("name-input").value;
+        let email = document.getElementById("email-input").value;
+        let numTravelers = document.getElementById("travelers-input").value;
+        let date = document.getElementById("date-input").value;
+        console.log("---Form Submitted---");
+        console.log("Destination: "+destination);
+        console.log("Name: "+name);
+        console.log("Email: "+email);
+        console.log("Number of Travelers: "+numTravelers);
+        console.log("Date: "+date);
+        alert("Booking confirmed!");
+    } catch (error) {
+        console.error("error in submitForm (form has incomplete entries): "+error);
+    }
 }
 
 if (document.location.href.includes("index.html")) {
