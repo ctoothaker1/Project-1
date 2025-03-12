@@ -47,10 +47,11 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
             <h1 class="card-title">${destination.name}</h1>
             <p class = "card-country">Country: ${destination.country}</p>
             <p class="card-description">${destination.details.long_description}</p>
+            <p class="card-land-area">Land area: ${destination.details.area}</p3>
             <p class="card-population">Population: ${destination.details.population}</p3>
-            <p class="card-language">Language Spoken: ${destination.details.language}</p>
+            <p class="card-language">Language spoken: ${destination.details.language}</p>
             <p class="card-currency">Currency: ${destination.details.currency}</p>
-            <p class="card-popular-destinations">Popular Destinations: ${destination.details.popularDestinations.join(" ")}</p>
+            <p class="card-popular-destinations">Popular Destinations: ${destination.details.popularDestinations.join(", ")}</p>
         `;
         document.title = "Travel the World - "+destination.name; // dynamic title change
         
@@ -58,7 +59,6 @@ async function loadDestinationDetails() { // used exclusively in destination.htm
 
         // map specific code
         // get lat and long based on destination id -1 since the id starts from 1
-        
         let map = L.map('map-container').setView([latitude, longitude], 10);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
