@@ -164,6 +164,16 @@ function submitForm(event){ // process form, print to console as proof of concep
         let email = document.getElementById("email-input").value;
         let numTravelers = document.getElementById("travelers-input").value;
         let date = document.getElementById("date-input").value;
+
+        // date verification
+        let today = new Date(); //use default date object. 
+        // alert(today.toISOString());
+        let inputDate = new Date(date);
+        if (inputDate < today) {
+            alert("Please enter a future date.");
+            return;
+        }
+
         console.log("---Form Submitted---");
         console.log("Destination: "+destination);
         console.log("Name: "+name);
@@ -171,6 +181,7 @@ function submitForm(event){ // process form, print to console as proof of concep
         console.log("Number of Travelers: "+numTravelers);
         console.log("Date: "+date);
         alert("Booking confirmed!");
+        document.getElementById("booking-form").reset(); // reset form
     } catch (error) {
         console.error("error in submitForm (form has incomplete entries): "+error);
     }
@@ -180,7 +191,7 @@ if (document.location.href.includes("index.html")) {
     window.onload = loadDestinations();
     }
 
-// open the destination details page based on page title
+// run destination details function based on page title
 if (document.location.href.includes("destination.html")) {
     window.onload = loadDestinationDetails();
     }
